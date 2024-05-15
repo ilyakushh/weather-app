@@ -1,4 +1,5 @@
 import clouds from "../img/clouds.jpg";
+import axios from "axios";
 import clear from "../img/clear2.jpg";
 import thunderstorm from "../img/thunderstorm.jpg";
 import rain from "../img/rain.jpg";
@@ -32,7 +33,7 @@ export const updateDate = () => {
 };
 
 export const fetchWeatherData = (searchQuery) => {
-  const api_key = import.meta.env.VITE_SOME_KEY;
+  const api_key = import.meta.env.VITE_WEATHER_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=metric&appid=${api_key}`;
   return fetch(url).then((res) => {
     if (!res.ok) {
@@ -40,6 +41,14 @@ export const fetchWeatherData = (searchQuery) => {
     }
     return res.json();
   });
+};
+
+export const getLocationData = async (latitude, longitude) => {
+  const api_key = import.meta.env.VITE_GEOLOCATION_KEY;
+  const response = await axios.get(
+    `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${api_key}`
+  );
+  return response.data;
 };
 
 export const backgroundImage = (weather) => {
