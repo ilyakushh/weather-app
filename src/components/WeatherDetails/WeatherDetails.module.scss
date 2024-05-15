@@ -1,0 +1,81 @@
+.weatherDeatailsContainer {
+  position: absolute;
+  padding: 20px 0 0 40px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 35%;
+  backdrop-filter: blur(6px);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 3px;
+    height: 100%;
+    background: #fff;
+    filter: blur(2px);
+    z-index: 1;
+  }
+  & h4 {
+    font-size: 30px;
+    margin-bottom: 80px;
+  }
+  & > p {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+}
+.searchBar {
+  position: relative;
+  width: 370px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30px;
+  & .searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 25px;
+    cursor: pointer;
+  }
+  & input {
+    width: 100%;
+    background-color: transparent;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    &::placeholder {
+      color: #fff;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.detailsList {
+  max-width: 370px;
+  & li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    & div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    & p {
+      font-size: 18px;
+    }
+    & .iconHeat {
+      font-size: 25px;
+      color: #dfa1a1;
+    }
+    & .iconCold {
+      font-size: 25px;
+      color: #6d97ca;
+    }
+  }
+}
